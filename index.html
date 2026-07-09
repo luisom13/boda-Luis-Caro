@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Luis & Carolina — ¡Nos casamos! · 21.11.2026</title>
+<meta name="description" content="Acompáñanos a celebrar nuestra boda el sábado 21 de noviembre de 2026 en San Salvador. Confirma tu asistencia aquí.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luis & Carolina — ¡Nos casamos!">
+<meta property="og:description" content="Sábado 21 de noviembre de 2026 · San Salvador. Toca para abrir tu invitación y confirmar asistencia.">
+<meta property="og:image" content="https://luisom13.github.io/boda-Luis-Caro/assets/og-miniatura.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://luisom13.github.io/boda-Luis-Caro/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/jpeg" href="assets/og-miniatura.jpg">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Cormorant+Garamond:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #EDE4DD; }
+  body { font-family: 'Cormorant Garamond', serif; color: #4E342B; }
+  a { color: #5D4037; }
+  a:hover { color: #8B6B4F; }
+  ::selection { background: #D9C6B5; }
+  @keyframes suave-pulso { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes flecha-baja { 0%,100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#EDE4DD">
+
+  <!-- ══════════ SOBRE (intro) ══════════ -->
+  <sc-if value="{{ introVisible }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="Sobre" onClick="{{ abrirSobre }}" style="position:fixed;inset:0;z-index:100;background:#EDE4DD;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;cursor:pointer;overflow:hidden;opacity:{{ introOpacidad }};transition:opacity .9s ease;pointer-events:{{ introPointer }}">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:15px;letter-spacing:.5em;text-indent:.5em;color:#8B6B4F">2 1 . 1 1 . 2 0 2 6</div>
+        <div style="font-family:'Great Vibes',cursive;font-size:clamp(38px,9vw,52px);line-height:1.1;color:#4E342B">Luis &amp; Carolina</div>
+      </div>
+      <div style="position:relative;width:min(80vw,430px)">
+        <div style="position:absolute;left:50%;top:6%;transform:translateX(-50%) translateY({{ cartaY }});transition:transform 1.1s cubic-bezier(.22,.8,.3,1);width:78%;background:#FAF6F1;border-radius:4px;box-shadow:0 10px 34px rgba(77,52,43,.25);padding:26px 18px 34px;text-align:center;display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
+          <div style="font-family:'Great Vibes',cursive;font-size:clamp(26px,6vw,36px);color:#4E342B">Luis &amp; Carolina</div>
+          <div style="font-size:13px;letter-spacing:.34em;text-indent:.34em;color:#6B4E3E">¡NOS CASAMOS!</div>
+        </div>
+        <img src="assets/sobre-cerrado.jpg" alt="Sobre" style="position:relative;width:100%;display:block;border-radius:10px;box-shadow:0 30px 70px rgba(60,40,32,.38)">
+      </div>
+      <div style="font-size:15px;letter-spacing:.3em;text-indent:.3em;color:#8B6B4F;animation:suave-pulso 2.4s ease-in-out infinite">TOCA PARA ABRIR</div>
+    </div>
+  </sc-if>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section data-screen-label="Portada" style="min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 28px 60px;box-sizing:border-box">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:22px">
+      <div style="font-size: 20px; letter-spacing: .55em; text-indent: .55em; color: #8B6B4F">2 1 . 1 1 . 2 0 2 6</div>
+      <div style="width:1px;height:44px;background:#C4A882"></div>
+      <div style="font-family:'Great Vibes',cursive;font-size:clamp(56px,13vw,96px);line-height:1.15;color:#4E342B">Luis <span style="color:#B08A5A">&amp;</span> Carolina</div>
+      <div style="width:1px;height:44px;background:#C4A882"></div>
+      <div style="font-size:19px;letter-spacing:.4em;text-indent:.4em;color:#6B4E3E;font-weight:600">¡ACOMPAÑANOS!</div>
+      <div style="font-size:22px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A;margin-top:8px">L <span style="font-weight:300">|</span> C</div>
+    </div>
+    <div style="margin-top:auto;padding-top:40px;color:#A98D6F;font-size:26px;animation:flecha-baja 2s ease-in-out infinite">↓</div>
+  </section>
+
+  <!-- ══════════ FOTO + MENSAJE ══════════ -->
+  <section data-screen-label="Foto y mensaje" style="padding:30px 28px 84px;display:flex;flex-direction:column;align-items:center">
+    <div data-reveal="" style="display:flex;justify-content:center;gap:14px;align-items:baseline;font-size:15px;letter-spacing:.3em;text-indent:.3em;color:#8B6B4F;margin-bottom:34px;text-transform:uppercase">
+      <span>Noviembre</span><span style="color:#B08A5A">·</span><span style="font-size:26px;font-weight:600;color:#4E342B">21</span><span style="color:#B08A5A">·</span><span>Sábado</span>
+    </div>
+    <div data-reveal="" style="background:#FAF6F1;padding:16px 16px 22px;box-shadow:0 18px 50px rgba(77,52,43,.18);max-width:400px;width:100%;box-sizing:border-box;transform:rotate(-1.2deg)">
+      <img src="assets/foto-novios.jpg" alt="Luis y Carolina" style="width:100%;display:block;aspect-ratio:2/3;object-fit:cover">
+    </div>
+    <div data-reveal="" style="max-width:460px;text-align:center;margin-top:52px;display:flex;flex-direction:column;gap:20px">
+      <div style="width:9px;height:9px;background:#B08A5A;transform:rotate(45deg);margin:0 auto"></div>
+      <p style="margin:0;font-size:22px;line-height:1.65;color:#5D4037;font-style:italic">Dios ha unido nuestras vidas en un mismo camino.</p>
+      <p style="margin:0;font-size:19px;line-height:1.7;color:#6B4E3E">Acompáñanos a dar gracias y celebrar. <br>Uniremos nuestras vidas en el sacramento del matrimonio.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ CUENTA REGRESIVA ══════════ -->
+  <section data-screen-label="Cuenta regresiva" style="background:#4E342B;padding:70px 24px;text-align:center">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:34px;align-items:center">
+      <div style="font-size:17px;letter-spacing:.4em;text-indent:.4em;color:#D9C6B5;text-transform:uppercase">Faltan</div>
+      <div style="display:flex;gap:clamp(10px,4vw,26px);justify-content:center">
+        <div style="display:flex;flex-direction:column;gap:8px;min-width:64px">
+          <div style="font-size:clamp(38px,9vw,54px);font-weight:600;color:#F5EDE4;font-variant-numeric:tabular-nums">{{ cDias }}</div>
+          <div style="font-size:12px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A">DÍAS</div>
+        </div>
+        <div style="font-size:clamp(30px,7vw,44px);color:#8B6B4F;align-self:flex-start;padding-top:6px">:</div>
+        <div style="display:flex;flex-direction:column;gap:8px;min-width:64px">
+          <div style="font-size:clamp(38px,9vw,54px);font-weight:600;color:#F5EDE4;font-variant-numeric:tabular-nums">{{ cHoras }}</div>
+          <div style="font-size:12px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A">HORAS</div>
+        </div>
+        <div style="font-size:clamp(30px,7vw,44px);color:#8B6B4F;align-self:flex-start;padding-top:6px">:</div>
+        <div style="display:flex;flex-direction:column;gap:8px;min-width:64px">
+          <div style="font-size:clamp(38px,9vw,54px);font-weight:600;color:#F5EDE4;font-variant-numeric:tabular-nums">{{ cMin }}</div>
+          <div style="font-size:12px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A">MIN</div>
+        </div>
+        <div style="font-size:clamp(30px,7vw,44px);color:#8B6B4F;align-self:flex-start;padding-top:6px">:</div>
+        <div style="display:flex;flex-direction:column;gap:8px;min-width:64px">
+          <div style="font-size:clamp(38px,9vw,54px);font-weight:600;color:#F5EDE4;font-variant-numeric:tabular-nums">{{ cSeg }}</div>
+          <div style="font-size:12px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A">SEG</div>
+        </div>
+      </div>
+      <div style="font-family:'Great Vibes',cursive;font-size:28px;color:#D9C6B5">para el gran día</div>
+    </div>
+  </section>
+
+  <!-- ══════════ LUGAR ══════════ -->
+  <section data-screen-label="Lugar" style="padding:84px 28px;display:flex;flex-direction:column;align-items:center;gap:56px">
+    <h2 data-reveal="" style="margin:0;font-size:clamp(26px,6vw,34px);font-weight:600;letter-spacing:.34em;text-indent:.34em;color:#4E342B;text-transform:uppercase;text-align:center">Lugar</h2>
+
+    <div data-reveal="" style="max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <img src="assets/iglesia-nueva.png" alt="Parroquia Perpetuo Socorro" style="width:min(64vw,280px)">
+      <div style="font-size:15px;letter-spacing:.38em;text-indent:.38em;color:#B08A5A;margin-top:10px">CEREMONIA</div>
+      <div style="font-size:30px;font-weight:600;color:#4E342B">2:30 PM</div>
+      <div style="font-size:19px;letter-spacing:.14em;color:#5D4037;line-height:1.6">PARROQUIA PERPETUO SOCORRO<br><span style="font-size:16px;color:#8B6B4F;letter-spacing:.08em">17 Av. Sur 415 · San Salvador</span></div>
+      <a href="https://maps.app.goo.gl/bqcqfBCxo6QiXWja7" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:8px;background:#4E342B;color:#F5EDE4;text-decoration:none;font-size:15px;letter-spacing:.18em;text-indent:.18em;padding:15px 30px;border-radius:999px;box-shadow:0 8px 22px rgba(78,52,43,.3)" style-hover="background:#5F4234;color:#FFF">VER EN GOOGLE MAPS</a>
+    </div>
+
+    <div data-reveal="" style="width:9px;height:9px;background:#B08A5A;transform:rotate(45deg)"></div>
+
+    <div data-reveal="" style="max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <div style="font-size:15px;letter-spacing:.38em;text-indent:.38em;color:#B08A5A">RECEPCIÓN</div>
+      <div style="font-size:30px;font-weight:600;color:#4E342B">5:30 PM</div>
+      <div style="font-size:19px;letter-spacing:.14em;color:#5D4037;line-height:1.6">LA QUADRA<br><span style="font-size:16px;color:#8B6B4F;letter-spacing:.08em">Km 8½ Planes de Renderos · San Salvador</span></div>
+      <a href="https://maps.app.goo.gl/U9JXhU6JeP4ndLdv5" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:8px;background:#4E342B;color:#F5EDE4;text-decoration:none;font-size:15px;letter-spacing:.18em;text-indent:.18em;padding:15px 30px;border-radius:999px;box-shadow:0 8px 22px rgba(78,52,43,.3)" style-hover="background:#5F4234;color:#FFF">VER EN GOOGLE MAPS</a>
+    </div>
+  </section>
+
+  <!-- ══════════ AGENDA ══════════ -->
+  <section data-screen-label="Agenda" style="padding:84px 28px;background:#E6DACF">
+    <div style="max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <h2 data-reveal="" style="margin:0;font-size:clamp(26px,6vw,34px);font-weight:600;letter-spacing:.34em;text-indent:.34em;color:#4E342B;text-transform:uppercase;text-align:center">Agenda</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ agenda }}" as="ev" hint-placeholder-count="8">
+          <div data-reveal="" style="display:grid;grid-template-columns:1fr 34px 1fr;align-items:center">
+            <div style="text-align:right;font-size:20px;font-weight:600;color:#4E342B;font-variant-numeric:tabular-nums;padding:16px 0">{{ ev.hora }}</div>
+            <div style="display:flex;flex-direction:column;align-items:center;align-self:stretch">
+              <div style="flex:1;width:1px;background:#C4A882"></div>
+              <div style="width:8px;height:8px;background:#B08A5A;transform:rotate(45deg);margin:4px 0"></div>
+              <div style="flex:1;width:1px;background:#C4A882"></div>
+            </div>
+            <div style="font-size:17px;letter-spacing:.2em;color:#6B4E3E;text-transform:uppercase;padding:16px 0">{{ ev.nombre }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ VESTIMENTA ══════════ -->
+  <section data-screen-label="Código de vestimenta" style="padding:84px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
+    <h2 data-reveal="" style="margin:0;font-size:clamp(22px,5.4vw,30px);font-weight:600;letter-spacing:.3em;text-indent:.3em;color:#4E342B;text-transform:uppercase">Código de Vestimenta</h2>
+    <div data-reveal="" style="font-family:'Great Vibes',cursive;font-size:44px;color:#B08A5A;line-height:1">Formal</div>
+    <img data-reveal="" src="assets/vestimenta-nueva.png" alt="Vestimenta formal" style="width:min(62vw,270px);margin-top:6px">
+    <p data-reveal="" style="margin:0;max-width:380px;font-size:18px;line-height:1.7;color:#6B4E3E;font-style:italic">Con mucho cariño les pedimos evitar prendas en color blanco.</p>
+  </section>
+
+  <!-- ══════════ MUESTRAS DE CARIÑO ══════════ -->
+  <section data-screen-label="Muestras de cariño" style="padding:20px 28px 84px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <div data-reveal="" style="width:9px;height:9px;background:#B08A5A;transform:rotate(45deg)"></div>
+    <h2 data-reveal="" style="margin:0;font-size:clamp(22px,5.4vw,30px);font-weight:600;letter-spacing:.3em;text-indent:.3em;color:#4E342B;text-transform:uppercase">Muestras de Cariño</h2>
+    <img data-reveal="" src="assets/sobre-cari-o.png" alt="Sobre con sello dorado" style="width:min(64vw,280px);filter:drop-shadow(0 14px 28px rgba(77,52,43,.25))">
+    <p data-reveal="" style="margin:0;max-width:380px;font-size:18px;line-height:1.7;color:#6B4E3E">Agradecemos sus muestras de cariño en <br><strong style="color: rgb(78, 52, 43);">regalo de sobre</strong>.</p>
+  </section>
+
+  <!-- ══════════ CONFIRMAR ASISTENCIA ══════════ -->
+  <section data-screen-label="Confirmar asistencia" style="background:#4E342B;padding:84px 28px;text-align:center">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:22px;max-width:440px;margin:0 auto">
+      <h2 style="margin:0;font-size:clamp(24px,5.6vw,32px);font-weight:600;letter-spacing:.3em;text-indent:.3em;color:#F5EDE4;text-transform:uppercase">Confirmar Asistencia</h2>
+      <p style="margin:0;font-size:19px;line-height:1.7;color:#D9C6B5">Agradecemos que confirmes tu asistencia<br>antes del <strong style="color:#F5EDE4">25 de Octubre</strong>.</p>
+      <button onClick="{{ abrirModal }}" style="margin-top:10px;background:#F5EDE4;color:#4E342B;border:none;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.2em;text-indent:.2em;padding:18px 40px;border-radius:999px;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.3)" style-hover="background:#FFFFFF" style-active="transform:scale(.97)">CONFIRMAR AQUÍ</button>
+    </div>
+  </section>
+
+  <!-- ══════════ GRACIAS ══════════ -->
+  <section data-screen-label="Gracias" style="padding:80px 28px 90px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <div data-reveal="" style="background:#FAF6F1;padding:14px 14px 20px;box-shadow:0 18px 50px rgba(77,52,43,.18);max-width:430px;width:100%;box-sizing:border-box;transform:rotate(1.2deg);margin-bottom:28px">
+      <img src="assets/foto-manos.jpg" alt="Manos de Luis y Carolina con sus anillos" style="width:100%;display:block;aspect-ratio:3/2;object-fit:cover">
+    </div>
+    <div data-reveal="" style="font-size:16px;letter-spacing:.32em;text-indent:.32em;color:#6B4E3E;text-transform:uppercase;line-height:2">Esperamos contar<br>con su presencia</div>
+    <div data-reveal="" style="font-family:'Great Vibes',cursive;font-size:clamp(38px,9vw,52px);color:#4E342B">¡Muchas gracias!</div>
+    <div data-reveal="" style="font-size:20px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A;margin-top:10px">L <span style="font-weight:300">|</span> C</div>
+  </section>
+
+  <!-- ══════════ MODAL RSVP ══════════ -->
+  <sc-if value="{{ modalAbierto }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Modal RSVP" onClick="{{ cerrarModalFondo }}" style="position:fixed;inset:0;z-index:200;background:rgba(46,30,24,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box">
+      <div style="background:#FAF6F1;border-radius:14px;max-width:400px;width:100%;padding:34px 28px;box-sizing:border-box;box-shadow:0 30px 80px rgba(0,0,0,.35);position:relative;text-align:center;max-height:88vh;overflow:auto">
+        <button onClick="{{ cerrarModal }}" aria-label="Cerrar" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:26px;color:#8B6B4F;cursor:pointer;line-height:1;padding:6px">×</button>
+
+        <sc-if value="{{ rsvpEnviado }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:16px;padding:20px 0">
+            <div style="width:9px;height:9px;background:#B08A5A;transform:rotate(45deg);margin:0 auto"></div>
+            <div style="font-family:'Great Vibes',cursive;font-size:40px;color:#4E342B">¡Gracias!</div>
+            <p style="margin:0;font-size:18px;line-height:1.6;color:#6B4E3E">{{ mensajeGracias }}</p>
+            <button onClick="{{ cerrarModal }}" style="margin:10px auto 0;background:#4E342B;color:#F5EDE4;border:none;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.16em;text-indent:.16em;padding:13px 34px;border-radius:999px;cursor:pointer">CERRAR</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ rsvpNoEnviado }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div style="font-size:14px;letter-spacing:.32em;text-indent:.32em;color:#B08A5A;margin-top:6px">21 · 11 · 2026</div>
+            <div style="font-size:21px;font-weight:600;letter-spacing:.18em;text-indent:.18em;color:#4E342B;text-transform:uppercase">Confirmar Asistencia</div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <button onClick="{{ elegirSi }}" style="{{ estiloBtnSi }}">¡Sí, asistiré!</button>
+              <button onClick="{{ elegirNo }}" style="{{ estiloBtnNo }}">Lo siento, no podré asistir</button>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:8px;text-align:left">
+              <label for="rsvp-nombre" style="font-size:14px;letter-spacing:.22em;text-indent:.22em;color:#8B6B4F">NOMBRE Y APELLIDO</label>
+              <input id="rsvp-nombre" type="text" value="{{ nombre }}" onChange="{{ cambiarNombre }}" placeholder="Escribe tu nombre completo" style="width:100%;box-sizing:border-box;background:#FFFFFF;border:1px solid #D9C6B5;border-radius:10px;padding:15px 16px;font-family:'Cormorant Garamond',serif;font-size:18px;color:#4E342B;outline:none" style-focus="border:1px solid #B08A5A">
+            </div>
+
+            <sc-if value="{{ rsvpError }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;font-size:16px;line-height:1.5;color:#A0522D">No se pudo enviar. Intenta de nuevo o escríbenos a <a href="{{ mailtoHref }}" style="color:#A0522D;font-weight:600">{{ correoMostrar }}</a></p>
+            </sc-if>
+
+            <button onClick="{{ enviarRsvp }}" style="{{ estiloEnviar }}">{{ textoEnviar }}</button>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;correoRsvp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;luisom13@gmail.com&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Confirmación&quot;}, &quot;mostrarIntro&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Portada&quot;}}">
+class Component extends DCLogic {
+  state = {
+    introVisible: true,
+    introFase: 0, // 0 cerrado, 1 carta sube, 2 overlay se desvanece
+    ahora: Date.now(),
+    modalAbierto: false,
+    asistira: null,
+    nombre: '',
+    enviando: false,
+    enviado: false,
+    error: false
+  };
+
+  componentDidMount() {
+    this._timer = setInterval(() => this.setState({ ahora: Date.now() }), 1000);
+    if ((this.props.mostrarIntro ?? true) && this.state.introVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      this.setState({ introVisible: false, introFase: 2 });
+    }
+    requestAnimationFrame(() => this._prepararReveals());
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    document.body.style.overflow = '';
+  }
+
+  _prepararReveals() {
+    const els = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const intro = this.state.introVisible;
+      // Lo visible de inmediato (salvo tras el sobre) se queda; lo demás se revela al hacer scroll
+      if (!intro && r.top < window.innerHeight * 0.92) return;
+      const prev = el.style.transform && el.style.transform !== 'none' ? el.style.transform + ' ' : '';
+      el.style.opacity = '0';
+      el.style.transform = prev + 'translateY(26px)';
+      el.style.transition = 'opacity .9s ease, transform .9s ease';
+      io.observe(el);
+    });
+    this._io = io;
+  }
+
+  abrirSobre = () => {
+    if (this.state.introFase !== 0) return;
+    this.setState({ introFase: 1 });
+    setTimeout(() => this.setState({ introFase: 2 }), 1000);
+    setTimeout(() => {
+      this.setState({ introVisible: false });
+      document.body.style.overflow = '';
+    }, 1950);
+  };
+
+  enviarRsvp = async () => {
+    const { nombre, asistira, enviando } = this.state;
+    if (enviando || !nombre.trim() || asistira === null) return;
+    this.setState({ enviando: true, error: false });
+    const correo = this.props.correoRsvp ?? 'luisom13@gmail.com';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + correo, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          'Nombre': nombre.trim(),
+          'Asistencia': asistira ? 'Sí, asistirá' : 'No podrá asistir',
+          _subject: 'Confirmación de boda — ' + nombre.trim(),
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && String(data.success) !== 'false') {
+        this.setState({ enviado: true, enviando: false });
+      } else {
+        this.setState({ error: true, enviando: false });
+      }
+    } catch (e) {
+      this.setState({ error: true, enviando: false });
+    }
+  };
+
+  renderVals() {
+    const s = this.state;
+    const correo = this.props.correoRsvp ?? 'luisom13@gmail.com';
+
+    // Cuenta regresiva (hora de la ceremonia, El Salvador UTC-6)
+    const objetivo = new Date('2026-11-21T14:30:00-06:00').getTime();
+    let dif = Math.max(0, objetivo - s.ahora);
+    const dias = Math.floor(dif / 86400000); dif -= dias * 86400000;
+    const horas = Math.floor(dif / 3600000); dif -= horas * 3600000;
+    const min = Math.floor(dif / 60000); dif -= min * 60000;
+    const seg = Math.floor(dif / 1000);
+    const dd = n => String(n).padStart(2, '0');
+
+    const btnBase = "width:100%;box-sizing:border-box;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;padding:15px 16px;border-radius:10px;cursor:pointer;transition:all .2s ease;";
+    const css = str => { // string CSS -> objeto de estilo React
+      const o = {};
+      str.split(';').forEach(p => {
+        const i = p.indexOf(':'); if (i < 0) return;
+        const k = p.slice(0, i).trim().replace(/-([a-z])/g, (m, c) => c.toUpperCase());
+        o[k] = p.slice(i + 1).trim();
+      });
+      return o;
+    };
+    const activo = 'background:#4E342B;color:#F5EDE4;border:1px solid #4E342B;';
+    const inactivo = 'background:#FFFFFF;color:#6B4E3E;border:1px solid #D9C6B5;';
+    const puedeEnviar = !!s.nombre.trim() && s.asistira !== null && !s.enviando;
+
+    return {
+      introVisible: (this.props.mostrarIntro ?? true) && s.introVisible,
+      introOpacidad: s.introFase >= 2 ? 0 : 1,
+      introPointer: s.introFase >= 2 ? 'none' : 'auto',
+      cartaY: s.introFase >= 1 ? '-82%' : '4%',
+      abrirSobre: this.abrirSobre,
+
+      cDias: dd(dias), cHoras: dd(horas), cMin: dd(min), cSeg: dd(seg),
+
+      agenda: [
+        { hora: '2:30 PM', nombre: 'Ceremonia' },
+        { hora: '5:00 PM', nombre: 'Pre-cocktail' },
+        { hora: '5:30 PM', nombre: 'Recepción' },
+        { hora: '6:00 PM', nombre: 'Brindis' },
+        { hora: '6:30 PM', nombre: 'Cena' },
+        { hora: '7:30 PM', nombre: 'Baile de novios' },
+        { hora: '8:00 PM', nombre: 'Fiesta' },
+        { hora: '10:30 PM', nombre: 'Sorpresa' }
+      ],
+
+      modalAbierto: s.modalAbierto,
+      abrirModal: () => this.setState({ modalAbierto: true, enviado: false, error: false }),
+      cerrarModal: () => this.setState({ modalAbierto: false }),
+      cerrarModalFondo: (e) => { if (e.target === e.currentTarget) this.setState({ modalAbierto: false }); },
+
+      rsvpEnviado: s.enviado,
+      rsvpNoEnviado: !s.enviado,
+      rsvpError: s.error,
+      mensajeGracias: s.asistira
+        ? 'Tu confirmación ha sido enviada. ¡Nos vemos el 21 de noviembre!'
+        : 'Tu respuesta ha sido enviada. ¡Gracias por avisarnos, te tendremos presente!',
+
+      nombre: s.nombre,
+      cambiarNombre: (e) => this.setState({ nombre: e.target.value }),
+      elegirSi: () => this.setState({ asistira: true }),
+      elegirNo: () => this.setState({ asistira: false }),
+      estiloBtnSi: css(btnBase + (s.asistira === true ? activo : inactivo)),
+      estiloBtnNo: css(btnBase + (s.asistira === false ? activo : inactivo)),
+
+      enviarRsvp: this.enviarRsvp,
+      textoEnviar: s.enviando ? 'Enviando…' : 'ENVIAR CONFIRMACIÓN',
+      estiloEnviar: css(btnBase + 'letter-spacing:.14em;text-indent:.14em;margin-top:4px;' + (puedeEnviar ? 'background:#B08A5A;color:#FFFFFF;border:1px solid #B08A5A;' : 'background:#E5DACD;color:#A08B76;border:1px solid #E5DACD;cursor:default;')),
+
+      mailtoHref: 'mailto:' + correo + '?subject=' + encodeURIComponent('Confirmación de boda'),
+      correoMostrar: correo
+    };
+  }
+}
+</script>
+</body>
+</html>
