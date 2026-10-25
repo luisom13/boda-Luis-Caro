@@ -2,18 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Luis & Carolina — ¡Nuestra Boda! · 21.11.2026</title>
-<meta name="description" content="Acompáñanos a celebrar nuestra boda el sábado 21 de noviembre de 2026 en San Salvador. Confirma tu asistencia aquí.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luis & Carolina — ¡Nuestra Boda!">
-<meta property="og:description" content="Sábado 21 de noviembre de 2026 · San Salvador. Toca para abrir tu invitación y confirmar asistencia.">
-<meta property="og:image" content="https://luisom13.github.io/boda-Luis-Caro/assets/og-miniatura.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://luisom13.github.io/boda-Luis-Caro/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/jpeg" href="assets/og-miniatura.jpg">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
@@ -190,6 +178,137 @@
     <div data-reveal="" style="font-size:20px;letter-spacing:.3em;text-indent:.3em;color:#B08A5A;margin-top:10px">L <span style="font-weight:300">|</span> C</div>
   </section>
 
+  <!-- ══════════ MÓDULOS DEL DÍA DE LA BODA ══════════ -->
+  <sc-if value="{{ bodaActiva }}" hint-placeholder-val="{{ false }}">
+    <div style="height:96px"></div>
+
+    <sc-if value="{{ vistaMesa }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Encuentra tu mesa" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
+        <div style="max-width:520px;margin:0 auto;padding:64px 26px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
+          <div style="font-size:14px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
+          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">Encuentra tu Mesa</h2>
+          <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#B08A5A;line-height:1.1">te estábamos esperando</div>
+          <input type="text" value="{{ busqueda }}" onChange="{{ cambiarBusqueda }}" placeholder="Escribe tu nombre o apellido" autocomplete="off" style="margin-top:22px;width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid #B08A5A;padding:14px 4px;font-family:'Cormorant Garamond',serif;font-size:21px;color:#4E342B;text-align:center;outline:none;border-radius:0" style-focus="border-bottom:1px solid #4E342B">
+          <sc-if value="{{ busquedaVacia }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:6px 0 0;font-size:17px;line-height:1.6;color:#8B6B4F;font-style:italic">Busca tu nombre y te diremos en qué mesa te esperamos.</p>
+          </sc-if>
+          <sc-if value="{{ hayResultados }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;display:flex;flex-direction:column;gap:10px;margin-top:8px">
+              <sc-for list="{{ resultados }}" as="r" hint-placeholder-count="2">
+                <button onClick="{{ r.verPlano }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;box-sizing:border-box;background:#FAF6F1;border:1px solid #E0D2C3;border-radius:12px;padding:14px 18px;font-family:'Cormorant Garamond',serif;cursor:pointer;text-align:left" style-hover="border:1px solid #B08A5A">
+                  <span style="font-size:19px;font-weight:600;color:#4E342B">{{ r.nombre }}</span>
+                  <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0">
+                    <span style="font-size:12px;letter-spacing:.24em;color:#8B6B4F">MESA</span>
+                    <span style="font-size:28px;font-weight:600;color:#B08A5A;line-height:1">{{ r.mesa }}</span>
+                  </span>
+                </button>
+              </sc-for>
+              <div style="font-size:15px;color:#8B6B4F;font-style:italic;margin-top:4px">Toca tu nombre para verla en el plano</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sinResultados }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:6px 0 0;font-size:17px;line-height:1.6;color:#8B6B4F">No encontramos ese nombre. Intenta solo con tu apellido o pregunta en la entrada, con gusto te ayudamos.</p>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ vistaPlano }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Plano del salón" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
+        <div style="max-width:560px;margin:0 auto;padding:64px 22px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
+          <div style="font-size:14px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
+          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">Plano del Salón</h2>
+          <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#B08A5A;line-height:1.1">La Quadra</div>
+          <div style="position:relative;width:100%;aspect-ratio:3/4;margin-top:18px;background:#FAF6F1;border:1px solid #D9C6B5;border-radius:6px;box-shadow:0 18px 50px rgba(77,52,43,.12);font-size:clamp(9px,2.4vw,12px);letter-spacing:.18em;color:#6B4E3E">
+            <div style="position:absolute;left:28%;top:4%;width:44%;height:6%;background:#F1E7DC;border:1px solid #B08A5A;display:flex;align-items:center;justify-content:center;font-weight:600">MESA DE NOVIOS</div>
+            <div style="position:absolute;right:4%;top:4%;width:12%;height:6%;border:1px dashed #C4A882;display:flex;align-items:center;justify-content:center">DJ</div>
+            <div style="position:absolute;left:34%;top:17%;width:32%;height:32%;border:1px solid #D9C6B5;background-image:repeating-linear-gradient(45deg,#F1E7DC 0 8px,#FAF6F1 8px 16px);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.6;font-weight:600">PISTA<br>DE BAILE</div>
+            <div style="position:absolute;left:4%;bottom:4%;width:26%;height:6%;background:#F1E7DC;border:1px solid #B08A5A;display:flex;align-items:center;justify-content:center;font-weight:600">BAR</div>
+            <div style="position:absolute;right:4%;bottom:4%;width:22%;height:6%;border:1px dashed #C4A882;display:flex;align-items:center;justify-content:center">PASTEL</div>
+            <div style="position:absolute;left:40%;bottom:-1px;width:20%;height:3px;background:#FAF6F1"></div>
+            <div style="position:absolute;left:40%;bottom:1.5%;width:20%;text-align:center;color:#B08A5A">ENTRADA</div>
+            <sc-for list="{{ mesas }}" as="m" hint-placeholder-count="20">
+              <button onClick="{{ m.elegir }}" aria-label="Mesa {{ m.n }}" style="{{ m.estilo }}">{{ m.n }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ hayMesaSel }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;box-sizing:border-box;background:#4E342B;border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;color:#F5EDE4">
+              <div style="font-size:14px;letter-spacing:.32em;text-indent:.32em;color:#D9C6B5">MESA {{ mesaSel }}</div>
+              <div style="font-size:18px;line-height:1.6">{{ invitadosMesa }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ noMesaSel }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0;font-size:17px;line-height:1.6;color:#8B6B4F;font-style:italic">Toca una mesa para ver quién se sienta ahí.</p>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ vistaBar }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Menú de bar" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
+        <div style="max-width:520px;margin:0 auto;padding:56px 22px 150px;display:flex;flex-direction:column;align-items:center;gap:20px;box-sizing:border-box">
+          <div style="font-family:'Great Vibes',cursive;font-size:34px;color:#B08A5A;line-height:1.1">¡Salud!</div>
+          <div style="width:100%;max-width:440px;box-sizing:border-box;background:#FAF6F1;padding:clamp(28px,7vw,48px) clamp(22px,6vw,40px);box-shadow:0 18px 50px rgba(77,52,43,.14);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(14px,5vw,34px)">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+              <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:clamp(80px,23vw,124px);font-weight:500;line-height:.8;color:#4E342B">BAR</div>
+              <div style="flex:1;width:2px;min-height:100px;background:#4E342B"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:26px;text-align:right;color:#4E342B">
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em;margin-bottom:6px">COCTELES</div>
+                <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Vodka Cranberry</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em;margin-bottom:6px">Vodka + Cranberry</div>
+                <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Whiskey Highball</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em;margin-bottom:6px">Whiskey + Agua Mineral</div>
+                <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Charro Negro</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em;margin-bottom:6px">Tequila + CocaCola</div>
+                <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Hugo Spritz</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Licor Sauco + Prosecco</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em;margin-bottom:6px">VINO</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Merlot</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Rosato</div>
+              </div>
+              <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em">CERVEZA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ vistaFotos }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Comparte tus momentos" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
+        <div style="max-width:520px;margin:0 auto;padding:64px 24px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
+          <div style="font-size:14px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
+          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">Comparte tus Momentos</h2>
+          <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#B08A5A;line-height:1.1">cada recuerdo cuenta</div>
+          <p style="margin:4px 0 0;max-width:400px;font-size:18px;line-height:1.7;color:#6B4E3E">Sube las fotos y videos que tomes durante la celebración. Nos encantará revivir este día a través de tus ojos.</p>
+          <div style="width:100%;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;margin-top:14px;aspect-ratio:5/4">
+            <img src="assets/foto-novios.jpg" alt="" style="grid-row:span 2;width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
+            <img src="assets/foto-manos.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
+            <img src="assets/anillos.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
+          </div>
+          <sc-if value="{{ hayEnlaceFotos }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ enlaceFotos }}" target="_blank" rel="noopener" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;background:#4E342B;color:#F5EDE4;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:.2em;text-indent:.2em;padding:18px 24px;border-radius:999px;box-shadow:0 10px 26px rgba(78,52,43,.3)" style-hover="background:#5F4234;color:#FFFFFF">SUBIR FOTOS Y VIDEOS</a>
+          </sc-if>
+          <sc-if value="{{ sinEnlaceFotos }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:14px;width:100%;box-sizing:border-box;background:#E5DACD;color:#8B6B4F;font-size:16px;letter-spacing:.16em;text-indent:.16em;padding:18px 24px;border-radius:999px">ÁLBUM DISPONIBLE MUY PRONTO</div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <nav data-screen-label="Menú día de la boda" style="position:fixed;z-index:95;left:50%;transform:translateX(-50%);bottom:clamp(0px,calc((100vw - 700px) * 100),20px);width:min(100%,620px);background:rgba(250,246,241,.97);backdrop-filter:blur(10px);border-top:1px solid #E0D2C3;border-radius:clamp(0px,calc((100vw - 700px) * 100),22px);box-shadow:0 -6px 30px rgba(77,52,43,.14);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:4px 4px calc(4px + env(safe-area-inset-bottom));box-sizing:border-box">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+        <button onClick="{{ t.ir }}" style="{{ t.estilo }}">
+          <span style="{{ t.marca }}"></span>
+          <span>{{ t.label }}</span>
+        </button>
+      </sc-for>
+    </nav>
+  </sc-if>
+
   <!-- ══════════ MODAL RSVP ══════════ -->
   <sc-if value="{{ modalAbierto }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Modal RSVP" onClick="{{ cerrarModalFondo }}" style="position:fixed;inset:0;z-index:200;background:rgba(46,30,24,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box">
@@ -211,14 +330,18 @@
             <div style="font-size:21px;font-weight:600;letter-spacing:.18em;text-indent:.18em;color:#4E342B;text-transform:uppercase">Confirmar Asistencia</div>
 
             <div style="display:flex;flex-direction:column;gap:10px">
-              <button onClick="{{ elegirSi }}" style="{{ estiloBtnSi }}">¡Sí, asistiré!</button>
-              <button onClick="{{ elegirNo }}" style="{{ estiloBtnNo }}">Lo siento, no podré asistir</button>
+              <button onClick="{{ elegirSi }}" disabled="{{ rsvpCerrado }}" style="{{ estiloBtnSi }}">¡Sí, asistiré!</button>
+              <button onClick="{{ elegirNo }}" disabled="{{ rsvpCerrado }}" style="{{ estiloBtnNo }}">Lo siento, no podré asistir</button>
             </div>
 
             <div style="display:flex;flex-direction:column;gap:8px;text-align:left">
               <label for="rsvp-nombre" style="font-size:14px;letter-spacing:.22em;text-indent:.22em;color:#8B6B4F">NOMBRE Y APELLIDO</label>
-              <input id="rsvp-nombre" type="text" value="{{ nombre }}" onChange="{{ cambiarNombre }}" placeholder="Escribe tu nombre completo" style="width:100%;box-sizing:border-box;background:#FFFFFF;border:1px solid #D9C6B5;border-radius:10px;padding:15px 16px;font-family:'Cormorant Garamond',serif;font-size:18px;color:#4E342B;outline:none" style-focus="border:1px solid #B08A5A">
+              <input id="rsvp-nombre" type="text" value="{{ nombre }}" onChange="{{ cambiarNombre }}" disabled="{{ rsvpCerrado }}" placeholder="{{ placeholderNombre }}" style="{{ estiloInput }}">
             </div>
+
+            <sc-if value="{{ rsvpCerrado }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;font-size:17px;line-height:1.6;color:#6B4E3E;font-style:italic">El plazo para confirmar asistencia finalizó el 24 de octubre. Agradecemos de corazón tu cariño y comprensión.</p>
+            </sc-if>
 
             <sc-if value="{{ rsvpError }}" hint-placeholder-val="{{ false }}">
               <p style="margin:0;font-size:16px;line-height:1.5;color:#A0522D">No se pudo enviar. Intenta de nuevo o escríbenos a <a href="{{ mailtoHref }}" style="color:#A0522D;font-weight:600">{{ correoMostrar }}</a></p>
@@ -234,7 +357,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;correoRsvp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;luisom13@gmail.com&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Confirmación&quot;}, &quot;mostrarIntro&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Portada&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;modoBoda&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;activado&quot;,&quot;desactivado&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;enlaceFotos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;estadoRsvp&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;abierto&quot;,&quot;cerrado&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;correoRsvp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;luisom13@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;mostrarIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Portada&quot;}}">
 class Component extends DCLogic {
   state = {
     introVisible: true,
@@ -245,12 +368,56 @@ class Component extends DCLogic {
     nombre: '',
     enviando: false,
     enviado: false,
-    error: false
+    error: false,
+    vista: 'inicio',
+    busqueda: '',
+    mesaSel: null
+  };
+
+  // EJEMPLO — reemplazar con la lista real: [nombre, mesa]
+  invitados = [
+    ['Ana Martínez', 1], ['José Hernández', 1], ['María López', 2], ['Carlos Rivera', 2],
+    ['Sofía Ramírez', 3], ['Diego Flores', 3], ['Gabriela Castillo', 4], ['Andrés Mejía', 4],
+    ['Valeria Guzmán', 5], ['Fernando Alvarado', 5], ['Daniela Rosales', 6], ['Ricardo Portillo', 6],
+    ['Lucía Menjívar', 7], ['Javier Orellana', 7], ['Camila Aguilar', 8], ['Roberto Cruz', 8],
+    ['Isabel Henríquez', 9], ['Miguel Quintanilla', 9], ['Paola Ayala', 10], ['Eduardo Molina', 10],
+    ['Andrea Campos', 11], ['Óscar Velásquez', 11], ['Natalia Escobar', 12], ['Mario Pineda', 12],
+    ['Fernanda Zelaya', 13], ['Alejandro Serrano', 13], ['Karla Bonilla', 14], ['Rafael Calderón', 14],
+    ['Mónica Arévalo', 15], ['Héctor Navarro', 15], ['Elena Duarte', 16], ['Pablo Contreras', 16],
+    ['Patricia Vides', 17], ['Jorge Mendoza', 17], ['Claudia Reyes', 18], ['Luis Cáceres', 18],
+    ['Verónica Salazar', 19], ['Ernesto Guerra', 19], ['Beatriz Chávez', 20], ['Francisco Barrera', 20]
+  ];
+
+  // Posición de cada mesa en el plano (centro, % del ancho / alto)
+  posMesas = [
+    [10, 20], [24, 20], [10, 34], [24, 34], [10, 48], [24, 48],
+    [76, 20], [90, 20], [76, 34], [90, 34], [76, 48], [90, 48],
+    [18, 62], [39, 62], [61, 62], [82, 62], [18, 76], [39, 76], [61, 76], [82, 76]
+  ];
+
+  _bodaActiva() {
+    const m = 'desactivado';
+    if (m === 'activado') return true;
+    if (m === 'desactivado') return false;
+    try { if (new URLSearchParams(location.search).get('boda') === '1') return true; } catch (e) {}
+    return (this.state ? this.state.ahora : Date.now()) >= new Date('2026-11-21T00:00:00-06:00').getTime();
+  }
+
+  _rsvpCerrado() {
+    const m = 'cerrado';
+    if (m === 'cerrado') return true;
+    if (m === 'abierto') return false;
+    return this.state.ahora >= new Date('2026-10-25T00:00:00-06:00').getTime();
+  }
+
+  irA = (vista) => {
+    document.body.style.overflow = vista === 'inicio' ? '' : 'hidden';
+    this.setState({ vista });
   };
 
   componentDidMount() {
     this._timer = setInterval(() => this.setState({ ahora: Date.now() }), 1000);
-    if ((this.props.mostrarIntro ?? true) && this.state.introVisible) {
+    if ((this.props.mostrarIntro ?? true) && this.state.introVisible && !this._bodaActiva()) {
       document.body.style.overflow = 'hidden';
     } else {
       this.setState({ introVisible: false, introFase: 2 });
@@ -300,7 +467,7 @@ class Component extends DCLogic {
 
   enviarRsvp = async () => {
     const { nombre, asistira, enviando } = this.state;
-    if (enviando || !nombre.trim() || asistira === null) return;
+    if (this._rsvpCerrado() || enviando || !nombre.trim() || asistira === null) return;
     this.setState({ enviando: true, error: false });
     const correo = this.props.correoRsvp ?? 'luisom13@gmail.com';
     try {
@@ -351,9 +518,66 @@ class Component extends DCLogic {
     };
     const activo = 'background:#4E342B;color:#F5EDE4;border:1px solid #4E342B;';
     const inactivo = 'background:#FFFFFF;color:#6B4E3E;border:1px solid #D9C6B5;';
-    const puedeEnviar = !!s.nombre.trim() && s.asistira !== null && !s.enviando;
+    const cerrado = this._rsvpCerrado();
+    const bloqueado = 'background:#EFE8E0;color:#B3A08C;border:1px solid #E2D8CC;cursor:not-allowed;';
+    const puedeEnviar = !cerrado && !!s.nombre.trim() && s.asistira !== null && !s.enviando;
+
+    // Módulos del día de la boda
+    const boda = this._bodaActiva();
+    const norm = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    const q = norm(s.busqueda);
+    const verPlano = (mesa) => this.setState({ mesaSel: mesa, vista: 'plano' });
+    const resultados = q.length < 2 ? [] : this.invitados
+      .filter(([n]) => norm(n).includes(q))
+      .slice(0, 12)
+      .map(([nombre, mesa]) => ({ nombre, mesa, verPlano: () => verPlano(mesa) }));
+    const mesas = this.posMesas.map(([x, y], i) => {
+      const n = i + 1, sel = s.mesaSel === n;
+      return {
+        n,
+        elegir: () => this.setState({ mesaSel: sel ? null : n }),
+        estilo: css(`position:absolute;left:${x}%;top:${y}%;width:12%;aspect-ratio:1;transform:translate(-50%,-50%) scale(${sel ? 1.15 : 1});border-radius:50%;padding:0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:clamp(12px,3.4vw,17px);font-weight:600;transition:all .25s ease;` +
+          (sel ? 'background:#4E342B;color:#F5EDE4;border:1px solid #4E342B;box-shadow:0 0 0 5px rgba(176,138,90,.35);z-index:2;' : 'background:#FFFFFF;color:#4E342B;border:1px solid #B08A5A;'))
+      };
+    });
+    const tabsDef = [['inicio', 'Inicio'], ['mesa', 'Mi Mesa'], ['plano', 'Plano'], ['bar', 'Bar'], ['fotos', 'Fotos']];
+    const tabs = tabsDef.map(([id, label]) => {
+      const act = s.vista === id;
+      return {
+        label,
+        ir: () => this.irA(id),
+        estilo: css(`display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:58px;background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;padding:4px 2px;color:${act ? '#4E342B' : '#8B6B4F'};font-weight:${act ? 700 : 500};`),
+        marca: css(`width:6px;height:6px;background:#B08A5A;transform:rotate(45deg);opacity:${act ? 1 : 0};transition:opacity .2s;`)
+      };
+    });
+    const enlaceFotos = (this.props.enlaceFotos ?? '').trim();
 
     return {
+      bodaActiva: boda,
+      vistaMesa: boda && s.vista === 'mesa',
+      vistaPlano: boda && s.vista === 'plano',
+      vistaBar: boda && s.vista === 'bar',
+      vistaFotos: boda && s.vista === 'fotos',
+      tabs,
+      busqueda: s.busqueda,
+      cambiarBusqueda: (e) => this.setState({ busqueda: e.target.value }),
+      busquedaVacia: q.length < 2,
+      hayResultados: resultados.length > 0,
+      sinResultados: q.length >= 2 && resultados.length === 0,
+      resultados,
+      mesas,
+      mesaSel: s.mesaSel,
+      hayMesaSel: s.mesaSel !== null,
+      noMesaSel: s.mesaSel === null,
+      invitadosMesa: this.invitados.filter(([, m]) => m === s.mesaSel).map(([n]) => n).join(' · ') || 'Mesa disponible',
+      enlaceFotos,
+      hayEnlaceFotos: !!enlaceFotos,
+      sinEnlaceFotos: !enlaceFotos,
+
+      rsvpCerrado: cerrado,
+      placeholderNombre: cerrado ? 'Confirmaciones cerradas' : 'Escribe tu nombre completo',
+      estiloInput: css("width:100%;box-sizing:border-box;border-radius:10px;padding:15px 16px;font-family:'Cormorant Garamond',serif;font-size:18px;outline:none;" + (cerrado ? bloqueado : 'background:#FFFFFF;border:1px solid #D9C6B5;color:#4E342B;')),
+
       introVisible: (this.props.mostrarIntro ?? true) && s.introVisible,
       introOpacidad: s.introFase >= 2 ? 0 : 1,
       introPointer: s.introFase >= 2 ? 'none' : 'auto',
@@ -365,11 +589,11 @@ class Component extends DCLogic {
       agenda: [
         { hora: '2:30 PM', nombre: 'Ceremonia' },
         { hora: '5:00 PM', nombre: 'Pre-cocktail' },
-        { hora: '5:30 PM', nombre: 'Brindis' },
-        { hora: '6:00 PM', nombre: 'Cena' },
-        { hora: '7:00 PM', nombre: 'Baile Novios' },
-        { hora: '7:15 PM', nombre: 'Fiesta' },
-        { hora: '9:00 PM', nombre: 'Pastel' },
+        { hora: '5:30 PM', nombre: 'BRINDIS' },
+        { hora: '6:00 PM', nombre: 'CENA' },
+        { hora: '7:00 PM', nombre: 'BAILE NOVIOS' },
+        { hora: '7:15 PM', nombre: 'FIESTA' },
+        { hora: '9:00 PM', nombre: 'PASTEL' },
         { hora: '10:15 PM', nombre: 'Sorpresa' }
       ],
 
@@ -389,12 +613,12 @@ class Component extends DCLogic {
       cambiarNombre: (e) => this.setState({ nombre: e.target.value }),
       elegirSi: () => this.setState({ asistira: true }),
       elegirNo: () => this.setState({ asistira: false }),
-      estiloBtnSi: css(btnBase + (s.asistira === true ? activo : inactivo)),
-      estiloBtnNo: css(btnBase + (s.asistira === false ? activo : inactivo)),
+      estiloBtnSi: css(btnBase + (cerrado ? bloqueado : s.asistira === true ? activo : inactivo)),
+      estiloBtnNo: css(btnBase + (cerrado ? bloqueado : s.asistira === false ? activo : inactivo)),
 
       enviarRsvp: this.enviarRsvp,
-      textoEnviar: s.enviando ? 'Enviando…' : 'ENVIAR CONFIRMACIÓN',
-      estiloEnviar: css(btnBase + 'letter-spacing:.14em;text-indent:.14em;margin-top:4px;' + (puedeEnviar ? 'background:#B08A5A;color:#FFFFFF;border:1px solid #B08A5A;' : 'background:#E5DACD;color:#A08B76;border:1px solid #E5DACD;cursor:default;')),
+      textoEnviar: cerrado ? 'Lo sentimos, la fecha para confirmar ha finalizado' : s.enviando ? 'Enviando…' : 'ENVIAR CONFIRMACIÓN',
+      estiloEnviar: css(btnBase + (cerrado ? 'font-size:16px;font-style:italic;line-height:1.4;' : 'letter-spacing:.14em;text-indent:.14em;') + 'margin-top:4px;' + (puedeEnviar ? 'background:#B08A5A;color:#FFFFFF;border:1px solid #B08A5A;' : 'background:#E5DACD;color:#A08B76;border:1px solid #E5DACD;cursor:default;')),
 
       mailtoHref: 'mailto:' + correo + '?subject=' + encodeURIComponent('Confirmación de boda'),
       correoMostrar: correo
