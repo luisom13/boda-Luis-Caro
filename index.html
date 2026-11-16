@@ -197,9 +197,16 @@
               <sc-for list="{{ resultados }}" as="r" hint-placeholder-count="2">
                 <button onClick="{{ r.verPlano }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;box-sizing:border-box;background:#FAF6F1;border:1px solid #E0D2C3;border-radius:12px;padding:14px 18px;font-family:'Cormorant Garamond',serif;cursor:pointer;text-align:left" style-hover="border:1px solid #B08A5A">
                   <span style="font-size:19px;font-weight:600;color:#4E342B">{{ r.nombre }}</span>
-                  <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0">
-                    <span style="font-size:12px;letter-spacing:.24em;color:#8B6B4F">MESA</span>
-                    <span style="font-size:28px;font-weight:600;color:#B08A5A;line-height:1">{{ r.mesa }}</span>
+                  <span style="display:flex;gap:16px;flex-shrink:0">
+                    <span style="display:flex;flex-direction:column;align-items:center;gap:2px">
+                      <span style="font-size:12px;letter-spacing:.24em;text-indent:.24em;color:#8B6B4F">MESA</span>
+                      <span style="font-size:28px;font-weight:600;color:#B08A5A;line-height:1">{{ r.mesa }}</span>
+                    </span>
+                    <span style="width:1px;background:#E0D2C3"></span>
+                    <span style="display:flex;flex-direction:column;align-items:center;gap:2px">
+                      <span style="font-size:12px;letter-spacing:.24em;text-indent:.24em;color:#8B6B4F">ASIENTO</span>
+                      <span style="font-size:28px;font-weight:600;color:#B08A5A;line-height:1">{{ r.asiento }}</span>
+                    </span>
                   </span>
                 </button>
               </sc-for>
@@ -215,26 +222,57 @@
 
     <sc-if value="{{ vistaPlano }}" hint-placeholder-val="{{ false }}">
       <div data-screen-label="Plano del salón" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
-        <div style="max-width:560px;margin:0 auto;padding:64px 22px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
+        <div style="max-width:980px;margin:0 auto;padding:64px 22px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
           <div style="font-size:14px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
-          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">Plano del Salón</h2>
+          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">PLANO DEL JARDÍN</h2>
           <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#B08A5A;line-height:1.1">La Quadra</div>
-          <div style="position:relative;width:100%;aspect-ratio:3/4;margin-top:18px;background:#FAF6F1;border:1px solid #D9C6B5;border-radius:6px;box-shadow:0 18px 50px rgba(77,52,43,.12);font-size:clamp(9px,2.4vw,12px);letter-spacing:.18em;color:#6B4E3E">
-            <div style="position:absolute;left:28%;top:4%;width:44%;height:6%;background:#F1E7DC;border:1px solid #B08A5A;display:flex;align-items:center;justify-content:center;font-weight:600">MESA DE NOVIOS</div>
-            <div style="position:absolute;right:4%;top:4%;width:12%;height:6%;border:1px dashed #C4A882;display:flex;align-items:center;justify-content:center">DJ</div>
-            <div style="position:absolute;left:34%;top:17%;width:32%;height:32%;border:1px solid #D9C6B5;background-image:repeating-linear-gradient(45deg,#F1E7DC 0 8px,#FAF6F1 8px 16px);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.6;font-weight:600">PISTA<br>DE BAILE</div>
-            <div style="position:absolute;left:4%;bottom:4%;width:26%;height:6%;background:#F1E7DC;border:1px solid #B08A5A;display:flex;align-items:center;justify-content:center;font-weight:600">BAR</div>
-            <div style="position:absolute;right:4%;bottom:4%;width:22%;height:6%;border:1px dashed #C4A882;display:flex;align-items:center;justify-content:center">PASTEL</div>
-            <div style="position:absolute;left:40%;bottom:-1px;width:20%;height:3px;background:#FAF6F1"></div>
-            <div style="position:absolute;left:40%;bottom:1.5%;width:20%;text-align:center;color:#B08A5A">ENTRADA</div>
-            <sc-for list="{{ mesas }}" as="m" hint-placeholder-count="20">
-              <button onClick="{{ m.elegir }}" aria-label="Mesa {{ m.n }}" style="{{ m.estilo }}">{{ m.n }}</button>
+          <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:18px;border-radius:8px;box-shadow:0 18px 50px rgba(77,52,43,.12)">
+          <div style="position:relative;width:100%;min-width:620px;aspect-ratio:1260/950;container-type:inline-size;background-color:#FAF6F1;background-image:radial-gradient(#E5DACD 1px,transparent 1.2px);background-size:1.6cqw 1.6cqw;border:1px solid #D9C6B5;border-radius:8px;box-sizing:border-box;color:#6B4E3E;overflow:hidden">
+            <div style="position:absolute;left:35.24%;top:2.11%;width:17.7%;height:15.79%;background-color:#F1E7DC;background-image:repeating-conic-gradient(#EADFD2 0 25%,#F5EDE4 0 50%);background-size:1.8cqw 1.8cqw;border:1px solid #C4A882;border-radius:4px;box-shadow:inset 0 0 0 .5cqw rgba(250,246,241,.9);flex-direction:column;gap:.4cqw;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;">
+              <span style="width:.7cqw;height:.7cqw;background:#B08A5A;transform:rotate(45deg)"></span>
+              <span style="background:#FAF6F1;padding:.3cqw 1cqw;font-size:max(11px,1.05cqw);letter-spacing:.32em;text-indent:.32em;color:#4E342B">PISTA DE BAILE</span>
+            </div>
+            <div style="position:absolute;left:1.43%;top:15.26%;width:13.02%;height:54.21%;background-color:#F1E7DC;background-image:repeating-linear-gradient(0deg,transparent 0 2.2cqw,#E2D3C3 2.2cqw calc(2.2cqw + 1px));border:1px solid #D9C6B5;border-radius:4px;font-size:max(11px,1.05cqw);letter-spacing:.32em;text-indent:.32em;color:#4E342B;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;"><span style="background:#F1E7DC;padding:.3cqw .8cqw">DECK</span></div>
+            <div style="position:absolute;left:3.65%;top:62.11%;width:8.57%;height:4.84%;background:#FFFFFF;border:1px solid #B08A5A;border-radius:3px;font-size:max(9px,.85cqw);letter-spacing:.26em;text-indent:.26em;color:#4E342B;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;">BUZÓN</div>
+            <div style="position:absolute;left:87.14%;top:12.84%;width:10.79%;height:33.16%;background:#4E342B;border-radius:4px;box-shadow:inset 0 0 0 .5cqw #4E342B,inset 0 0 0 calc(.5cqw + 1px) rgba(217,198,181,.5);color:#F5EDE4;writing-mode:vertical-rl;font-size:max(13px,1.4cqw);letter-spacing:.5em;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;">BAR</div>
+            <div style="position:absolute;background:#EDE4DD;border:1px dashed #C4A882;border-radius:3px;color:#B08A5A;font-size:max(9px,.85cqw);letter-spacing:.3em;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;left:57.78%;top:90.21%;width:12.38%;height:7.79%;font-size:max(10px,.95cqw);color:#8B6B4F">ENTRADA</div>
+            <sc-for list="{{ pasos }}" as="p" hint-placeholder-count="40">
+              <span style="{{ p.estilo }}"></span>
+            </sc-for>
+            <sc-for list="{{ asientos }}" as="a" hint-placeholder-count="88">
+              <span style="{{ a.estilo }}"></span>
+            </sc-for>
+            <sc-for list="{{ mesas }}" as="m" hint-placeholder-count="6">
+              <button onClick="{{ m.elegir }}" aria-label="Mesa {{ m.n }}" style="{{ m.estilo }}">
+                <span style="font-size:max(16px,2.1cqw);line-height:1">{{ m.n }}</span>
+              </button>
             </sc-for>
           </div>
+          </div>
+          <div style="font-size:14px;color:#8B6B4F;font-style:italic">Desliza para ver todo el lugar</div>
           <sc-if value="{{ hayMesaSel }}" hint-placeholder-val="{{ false }}">
-            <div style="width:100%;box-sizing:border-box;background:#4E342B;border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;color:#F5EDE4">
-              <div style="font-size:14px;letter-spacing:.32em;text-indent:.32em;color:#D9C6B5">MESA {{ mesaSel }}</div>
-              <div style="font-size:18px;line-height:1.6">{{ invitadosMesa }}</div>
+            <div style="width:100%;max-width:560px;box-sizing:border-box;background:#4E342B;border-radius:12px;padding:22px 22px 14px;display:flex;flex-direction:column;gap:14px;color:#F5EDE4;text-align:left">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+                <div style="font-size:15px;letter-spacing:.32em;color:#D9C6B5">MESA {{ mesaSel }}</div>
+                <div style="font-size:14px;color:#D9C6B5;font-style:italic">{{ conteoMesa }}</div>
+              </div>
+              <sc-if value="{{ hayPersonaSel }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#F5EDE4;color:#4E342B;border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+                  <div style="display:flex;flex-direction:column;gap:2px">
+                    <span style="font-size:13px;letter-spacing:.24em;color:#8B6B4F">TU LUGAR</span>
+                    <span style="font-size:20px;font-weight:600">{{ personaSel }}</span>
+                  </div>
+                  <div style="font-size:16px;color:#B08A5A;font-weight:600;text-align:right;flex-shrink:0">{{ textoAsiento }}</div>
+                </div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column">
+                <sc-for list="{{ listaMesa }}" as="p" hint-placeholder-count="6">
+                  <button onClick="{{ p.elegir }}" style="{{ p.estilo }}">
+                    <span style="{{ p.numEstilo }}">{{ p.asiento }}</span>
+                    <span style="font-size:18px;line-height:1.3">{{ p.nombre }}</span>
+                  </button>
+                </sc-for>
+              </div>
             </div>
           </sc-if>
           <sc-if value="{{ noMesaSel }}" hint-placeholder-val="{{ true }}">
@@ -263,44 +301,26 @@
                 <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Charro Negro</div>
                 <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em;margin-bottom:6px">Tequila + CocaCola</div>
                 <div style="font-size:20px;font-weight:700;font-style:italic;letter-spacing:.04em">Hugo Spritz</div>
-                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Licor Sauco + Prosecco</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">St Germain + Prosecco</div>
               </div>
               <div style="display:flex;flex-direction:column;gap:4px">
                 <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em;margin-bottom:6px">VINO</div>
                 <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Merlot</div>
                 <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Rosato</div>
               </div>
-              <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em">CERVEZA</div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div style="font-size:17px;font-weight:700;letter-spacing:.3em;margin-right:-.3em;margin-bottom:6px">CERVEZA</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Hija de Pooh</div>
+                <div style="font-size:18px;font-style:italic;color:#6B4E3E;letter-spacing:.06em">Mera Belga</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </sc-if>
 
-    <sc-if value="{{ vistaFotos }}" hint-placeholder-val="{{ false }}">
-      <div data-screen-label="Comparte tus momentos" style="position:fixed;inset:0;z-index:90;background:#EDE4DD;overflow-y:auto">
-        <div style="max-width:520px;margin:0 auto;padding:64px 24px 150px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-sizing:border-box">
-          <div style="font-size:14px;letter-spacing:.42em;text-indent:.42em;color:#B08A5A">21 · 11 · 2026</div>
-          <h2 style="margin:0;font-size:clamp(24px,6vw,32px);font-weight:600;letter-spacing:.28em;text-indent:.28em;color:#4E342B;text-transform:uppercase;line-height:1.3">Comparte tus Momentos</h2>
-          <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#B08A5A;line-height:1.1">cada recuerdo cuenta</div>
-          <p style="margin:4px 0 0;max-width:400px;font-size:18px;line-height:1.7;color:#6B4E3E">Sube las fotos y videos que tomes durante la celebración. Nos encantará revivir este día a través de tus ojos.</p>
-          <div style="width:100%;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;margin-top:14px;aspect-ratio:5/4">
-            <img src="assets/foto-novios.jpg" alt="" style="grid-row:span 2;width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
-            <img src="assets/foto-manos.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
-            <img src="assets/anillos.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block">
-          </div>
-          <sc-if value="{{ hayEnlaceFotos }}" hint-placeholder-val="{{ true }}">
-            <a href="{{ enlaceFotos }}" target="_blank" rel="noopener" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;background:#4E342B;color:#F5EDE4;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:.2em;text-indent:.2em;padding:18px 24px;border-radius:999px;box-shadow:0 10px 26px rgba(78,52,43,.3)" style-hover="background:#5F4234;color:#FFFFFF">SUBIR FOTOS Y VIDEOS</a>
-          </sc-if>
-          <sc-if value="{{ sinEnlaceFotos }}" hint-placeholder-val="{{ false }}">
-            <div style="margin-top:14px;width:100%;box-sizing:border-box;background:#E5DACD;color:#8B6B4F;font-size:16px;letter-spacing:.16em;text-indent:.16em;padding:18px 24px;border-radius:999px">ÁLBUM DISPONIBLE MUY PRONTO</div>
-          </sc-if>
-        </div>
-      </div>
-    </sc-if>
-
-    <nav data-screen-label="Menú día de la boda" style="position:fixed;z-index:95;left:50%;transform:translateX(-50%);bottom:clamp(0px,calc((100vw - 700px) * 100),20px);width:min(100%,620px);background:rgba(250,246,241,.97);backdrop-filter:blur(10px);border-top:1px solid #E0D2C3;border-radius:clamp(0px,calc((100vw - 700px) * 100),22px);box-shadow:0 -6px 30px rgba(77,52,43,.14);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:4px 4px calc(4px + env(safe-area-inset-bottom));box-sizing:border-box">
-      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+    <nav data-screen-label="Menú día de la boda" style="position:fixed;z-index:95;left:50%;transform:translateX(-50%);bottom:clamp(0px,calc((100vw - 700px) * 100),20px);width:min(100%,620px);background:rgba(250,246,241,.97);backdrop-filter:blur(10px);border-top:1px solid #E0D2C3;border-radius:clamp(0px,calc((100vw - 700px) * 100),22px);box-shadow:0 -6px 30px rgba(77,52,43,.14);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:4px 4px calc(4px + env(safe-area-inset-bottom));box-sizing:border-box">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
         <button onClick="{{ t.ir }}" style="{{ t.estilo }}">
           <span style="{{ t.marca }}"></span>
           <span>{{ t.label }}</span>
@@ -357,7 +377,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;modoBoda&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;activado&quot;,&quot;desactivado&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;enlaceFotos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;estadoRsvp&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;abierto&quot;,&quot;cerrado&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;correoRsvp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;luisom13@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;mostrarIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Portada&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;modoBoda&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;activado&quot;,&quot;desactivado&quot;],&quot;default&quot;:&quot;activado&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;enlaceFotos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Día de la boda&quot;},&quot;estadoRsvp&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;abierto&quot;,&quot;cerrado&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;correoRsvp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;luisom13@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmación&quot;},&quot;mostrarIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Portada&quot;}}">
 class Component extends DCLogic {
   state = {
     introVisible: true,
@@ -374,29 +394,49 @@ class Component extends DCLogic {
     mesaSel: null
   };
 
-  // EJEMPLO — reemplazar con la lista real: [nombre, mesa]
+  // Invitados: [nombre, mesa, asiento] — asiento 0 = infante sin silla
   invitados = [
-    ['Ana Martínez', 1], ['José Hernández', 1], ['María López', 2], ['Carlos Rivera', 2],
-    ['Sofía Ramírez', 3], ['Diego Flores', 3], ['Gabriela Castillo', 4], ['Andrés Mejía', 4],
-    ['Valeria Guzmán', 5], ['Fernando Alvarado', 5], ['Daniela Rosales', 6], ['Ricardo Portillo', 6],
-    ['Lucía Menjívar', 7], ['Javier Orellana', 7], ['Camila Aguilar', 8], ['Roberto Cruz', 8],
-    ['Isabel Henríquez', 9], ['Miguel Quintanilla', 9], ['Paola Ayala', 10], ['Eduardo Molina', 10],
-    ['Andrea Campos', 11], ['Óscar Velásquez', 11], ['Natalia Escobar', 12], ['Mario Pineda', 12],
-    ['Fernanda Zelaya', 13], ['Alejandro Serrano', 13], ['Karla Bonilla', 14], ['Rafael Calderón', 14],
-    ['Mónica Arévalo', 15], ['Héctor Navarro', 15], ['Elena Duarte', 16], ['Pablo Contreras', 16],
-    ['Patricia Vides', 17], ['Jorge Mendoza', 17], ['Claudia Reyes', 18], ['Luis Cáceres', 18],
-    ['Verónica Salazar', 19], ['Ernesto Guerra', 19], ['Beatriz Chávez', 20], ['Francisco Barrera', 20]
+    ['Armando Lemus', 1, 1], ['Adriana Guandique', 1, 2], ['Emma Velami', 1, 3],
+    ['Ligia Lemus', 1, 4], ['Guillermo Portillo', 1, 5], ['Sara Andrade', 1, 6],
+    ['Celina Portillo', 1, 7], ['Karla Araujo', 1, 8], ['Diego Araujo', 1, 9],
+    ['Sor Maribel', 1, 10], ['Celina Andrade', 1, 11], ['Cecilia Andrade', 1, 12],
+    ['Michelle Escobar', 1, 13], ['Bernard Guandique', 1, 14], ['Charlie Brown', 1, 15],
+    ['Carlos Guandique', 1, 16], ['Reina Buruca', 1, 17], ['Carolina de Majano', 1, 18],
+    ['Luis Majano', 1, 19], ['Carolina Andrade', 1, 20], ['Mamitere', 1, 21],
+    ['Manuel Andrade', 1, 22], ['Paty Andrade', 1, 23], ['Miranda Andrade', 1, 24],
+    ['Angel Reyes', 2, 1], ['Debora Reyes', 2, 2], ['Luis Rodriguez', 2, 3],
+    ['Ivette Rodriguez', 2, 4], ['Estephanie Palacios', 2, 5], ['Will Figueroa', 2, 6],
+    ['Sully Bhrens', 2, 7], ['Fernando Bhrens', 2, 8], ['Marco Figueroa', 2, 9],
+    ['Lisseth García', 2, 10], ['Natalia Escobar', 2, 11], ['Gil Mejia', 2, 12],
+    ['Rolando Espinoza', 2, 13], ['Grecia Espinoza', 2, 14], ['Rafael Lopez', 2, 15],
+    ['Larissa Cerritos', 2, 16], ['David Escobar', 2, 17], ['Daniela Quijada', 2, 18],
+    ['Diana Gutierrez', 2, 19], ['Roberto Gutierrez', 2, 20], ['Roberto Recinos', 2, 21],
+    ['Glenda Cota', 2, 22], ['Henry Urbina', 2, 23], ['Yeni Garcia', 2, 24],
+    ['Humber Menjivar', 3, 1], ['Rodrigo Avelar', 3, 3], ['Karen Mejia', 3, 4],
+    ['Alejandro Rivas', 3, 5], ['Alfredo Varela', 3, 6], ['Cecilia Varela', 3, 7],
+    ['Adriana Araujo', 3, 8], ['Susana Araujo', 3, 9], ['Veronica Andrade', 3, 10],
+    ['Valentina Gutierrez', 5, 1], ['Tito Gutierrez', 5, 2], ['Vicky Gutierrez', 5, 3],
+    ['Aracely Buruca', 5, 4], ['Ariadna Hernandez', 5, 5], ['Ruben Hernandez', 5, 6],
+    ['Gaby Buruca', 5, 7], ['Julio Buruca', 5, 8], ['Aida Buruca', 5, 9],
+    ['Johanna Gutierrez', 5, 10], ['Luis Gutierrez', 4, 1], ['Gloria Buruca', 4, 2],
+    ['Javier Flores', 4, 3], ['Marielos Buruca', 4, 4], ['Karla Buruca', 4, 5],
+    ['Eloisa Rauda', 4, 6], ['Jeovany Rodriguez', 4, 7], ['Dinora Buruca', 4, 8],
+    ['Etelvina Flores', 4, 9], ['Marta Buruca', 4, 10], ['Alberto Hernandez', 6, 2],
+    ['Xiomara Flores', 6, 3], ['Luis Hernandez', 6, 4], ['Mauricio Latino', 6, 5],
+    ['Fatima Latino', 6, 6], ['Alejandra Orellana', 6, 7], ['Manuel Barrera', 6, 8],
+    ['Oscar Merlos', 6, 9], ['Nico Lemus', 1, 0]
   ];
 
   // Posición de cada mesa en el plano (centro, % del ancho / alto)
+  // Mesas del salón (coordenadas del plano, 1260×950): [n, x, y, redonda]
   posMesas = [
-    [10, 20], [24, 20], [10, 34], [24, 34], [10, 48], [24, 48],
-    [76, 20], [90, 20], [76, 34], [90, 34], [76, 48], [90, 48],
-    [18, 62], [39, 62], [61, 62], [82, 62], [18, 76], [39, 76], [61, 76], [82, 76]
+    [1, 302, 575, false], [2, 924, 575, false],
+    [3, 488, 472, true], [4, 742, 472, true],
+    [5, 488, 678, true], [6, 742, 678, true]
   ];
 
   _bodaActiva() {
-    const m = 'desactivado';
+    const m = 'auto';
     if (m === 'activado') return true;
     if (m === 'desactivado') return false;
     try { if (new URLSearchParams(location.search).get('boda') === '1') return true; } catch (e) {}
@@ -526,21 +566,62 @@ class Component extends DCLogic {
     const boda = this._bodaActiva();
     const norm = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
     const q = norm(s.busqueda);
-    const verPlano = (mesa) => this.setState({ mesaSel: mesa, vista: 'plano' });
-    const resultados = q.length < 2 ? [] : this.invitados
-      .filter(([n]) => norm(n).includes(q))
+    // Asiento: 3er valor opcional en la lista; si no, se asigna en orden dentro de la mesa
+    const cuenta = {};
+    const lista = this.invitados.map(([nombre, mesa, asiento]) => {
+      cuenta[mesa] = (cuenta[mesa] || 0) + 1;
+      // asiento 0 = infante sin silla asignada
+      return asiento === 0 ? { nombre, mesa, asiento: '—', orden: 99 } : { nombre, mesa, asiento: asiento ?? cuenta[mesa], orden: asiento ?? cuenta[mesa] };
+    });
+    const verPlano = (p) => this.setState({ mesaSel: p.mesa, asientoSel: p.asiento, personaSel: p.nombre, vista: 'plano' });
+    const resultados = q.length < 2 ? [] : lista
+      .filter(p => norm(p.nombre).includes(q))
       .slice(0, 12)
-      .map(([nombre, mesa]) => ({ nombre, mesa, verPlano: () => verPlano(mesa) }));
-    const mesas = this.posMesas.map(([x, y], i) => {
-      const n = i + 1, sel = s.mesaSel === n;
+      .map(p => ({ ...p, verPlano: () => verPlano(p) }));
+    const enMesa = lista.filter(p => p.mesa === s.mesaSel).sort((a, b) => a.orden - b.orden);
+    const listaMesa = enMesa.map((p, i) => {
+      const yo = s.personaSel === p.nombre;
       return {
-        n,
-        elegir: () => this.setState({ mesaSel: sel ? null : n }),
-        estilo: css(`position:absolute;left:${x}%;top:${y}%;width:12%;aspect-ratio:1;transform:translate(-50%,-50%) scale(${sel ? 1.15 : 1});border-radius:50%;padding:0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:clamp(12px,3.4vw,17px);font-weight:600;transition:all .25s ease;` +
-          (sel ? 'background:#4E342B;color:#F5EDE4;border:1px solid #4E342B;box-shadow:0 0 0 5px rgba(176,138,90,.35);z-index:2;' : 'background:#FFFFFF;color:#4E342B;border:1px solid #B08A5A;'))
+        ...p,
+        elegir: () => this.setState({ asientoSel: p.asiento, personaSel: p.nombre }),
+        estilo: css(`display:flex;align-items:center;gap:14px;width:100%;background:${yo ? 'rgba(245,237,228,.12)' : 'none'};border:none;${i ? 'border-top:1px solid rgba(217,198,181,.25);' : ''}border-radius:${yo ? '8px' : '0'};padding:11px 8px;font-family:'Cormorant Garamond',serif;color:#F5EDE4;cursor:pointer;text-align:left;font-weight:${yo ? 700 : 500};`),
+        numEstilo: css(`width:30px;height:30px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;${yo ? 'background:#F5EDE4;color:#4E342B;' : 'border:1px solid #B08A5A;color:#D9C6B5;'}`)
       };
     });
-    const tabsDef = [['inicio', 'Inicio'], ['mesa', 'Mi Mesa'], ['plano', 'Plano'], ['bar', 'Bar'], ['fotos', 'Fotos']];
+    const px = (x) => ((x - 60) / 12.6).toFixed(2) + '%', py = (y) => ((y - 160) / 9.5).toFixed(2) + '%';
+    const asientos = [];
+    // Pasos de cemento: [x1, y1, x2, y2, largo, ancho] en coordenadas del plano
+    const pasos = [];
+    [[616, 351, 616, 790, 30, 12], [648, 351, 1136, 351, 30, 12], [632, 818, 856, 996, 30, 12]].forEach(([x1, y1, x2, y2, L, A]) => {
+      const d = Math.hypot(x2 - x1, y2 - y1), ang = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI + 90;
+      const n = Math.floor(d / (A + 20)) + 1;
+      for (let i = 0; i < n; i++) {
+        const t = n > 1 ? i / (n - 1) : 0, cx = x1 + (x2 - x1) * t, cy = y1 + (y2 - y1) * t;
+        pasos.push({ estilo: css(`position:absolute;left:${px(cx)};top:${py(cy)};width:${(L / 12.6).toFixed(2)}%;height:${(A / 9.5).toFixed(2)}%;transform:translate(-50%,-50%) rotate(${ang.toFixed(1)}deg);background:linear-gradient(160deg,#EFE7DE,#E2D6C9);border:1px solid #CDBBA6;border-radius:2px;box-shadow:0 1px 2px rgba(77,52,43,.12);`) });
+      }
+    });
+    const mesas = this.posMesas.map(([n, x, y, red]) => {
+      const sel = s.mesaSel === n;
+      const pts = red
+        ? Array.from({ length: 10 }, (_, i) => { const t = (i / 10) * Math.PI * 2 - Math.PI / 2; return [x + Math.cos(t) * 80, y + Math.sin(t) * 80]; })
+        : Array.from({ length: 24 }, (_, i) => [x + (i < 12 ? 38 : -38), 410 + ((i % 12) + 0.5) * 27.5]);
+      pts.forEach(([sx, sy], i) => {
+        const mio = sel && s.asientoSel === i + 1;
+        asientos.push({
+          estilo: css(`position:absolute;left:${px(sx)};top:${py(sy)};width:${mio ? 2.3 : 1.35}%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);transition:all .25s ease;` +
+            (mio ? 'background:#4E342B;border:2px solid #FAF6F1;box-shadow:0 0 0 2px #4E342B,0 0 0 .9cqw rgba(176,138,90,.35);z-index:3;'
+              : sel ? 'background:#B08A5A;border:1px solid #B08A5A;' : 'background:#FAF6F1;border:1px solid #C4A882;'))
+        });
+      });
+      return {
+        n,
+        elegir: () => this.setState({ mesaSel: sel ? null : n, asientoSel: null, personaSel: null }),
+        estilo: css(`position:absolute;left:${px(x)};top:${py(y)};${red ? 'width:8.73%;aspect-ratio:1;border-radius:50%;' : 'width:3.49%;height:34.74%;border-radius:4px;'}transform:translate(-50%,-50%) scale(${sel ? 1.05 : 1});display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4cqw;padding:0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-weight:600;transition:all .25s ease;z-index:2;` +
+          (sel ? 'background:#4E342B;color:#F5EDE4;border:1.5px solid #4E342B;box-shadow:0 0 0 .5cqw rgba(176,138,90,.3),0 1cqw 2cqw rgba(77,52,43,.25);'
+               : 'background:#FFFFFF;color:#4E342B;border:1.5px solid #B08A5A;box-shadow:inset 0 0 0 .35cqw #FFFFFF,inset 0 0 0 calc(.35cqw + 1px) #E5DACD,0 .4cqw 1.2cqw rgba(77,52,43,.08);'))
+      };
+    });
+    const tabsDef = [['inicio', 'Inicio'], ['mesa', 'Mi Mesa'], ['plano', 'Plano'], ['bar', 'Bar']];
     const tabs = tabsDef.map(([id, label]) => {
       const act = s.vista === id;
       return {
@@ -550,14 +631,12 @@ class Component extends DCLogic {
         marca: css(`width:6px;height:6px;background:#B08A5A;transform:rotate(45deg);opacity:${act ? 1 : 0};transition:opacity .2s;`)
       };
     });
-    const enlaceFotos = (this.props.enlaceFotos ?? '').trim();
 
     return {
       bodaActiva: boda,
       vistaMesa: boda && s.vista === 'mesa',
       vistaPlano: boda && s.vista === 'plano',
       vistaBar: boda && s.vista === 'bar',
-      vistaFotos: boda && s.vista === 'fotos',
       tabs,
       busqueda: s.busqueda,
       cambiarBusqueda: (e) => this.setState({ busqueda: e.target.value }),
@@ -566,13 +645,17 @@ class Component extends DCLogic {
       sinResultados: q.length >= 2 && resultados.length === 0,
       resultados,
       mesas,
+      asientos,
+      pasos,
       mesaSel: s.mesaSel,
       hayMesaSel: s.mesaSel !== null,
       noMesaSel: s.mesaSel === null,
-      invitadosMesa: this.invitados.filter(([, m]) => m === s.mesaSel).map(([n]) => n).join(' · ') || 'Mesa disponible',
-      enlaceFotos,
-      hayEnlaceFotos: !!enlaceFotos,
-      sinEnlaceFotos: !enlaceFotos,
+      listaMesa,
+      conteoMesa: enMesa.length + (enMesa.length === 1 ? ' invitado' : ' invitados'),
+      hayPersonaSel: !!s.personaSel && s.mesaSel !== null,
+      personaSel: s.personaSel,
+      asientoSel: s.asientoSel,
+      textoAsiento: s.asientoSel === '—' ? 'Junto a su familia' : 'Asiento ' + s.asientoSel,
 
       rsvpCerrado: cerrado,
       placeholderNombre: cerrado ? 'Confirmaciones cerradas' : 'Escribe tu nombre completo',
